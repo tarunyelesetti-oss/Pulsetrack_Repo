@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";   // ✅ FIXED IMPORT
+import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
+import Analyze from "./pages/Analyze";
+import HistoryPage from "./pages/HistoryPage";
+import "./App.css";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.body.classList.toggle("light", theme === "light");
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header theme={theme} setTheme={setTheme} />
+
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/analyze" element={<Analyze />} />
+          <Route path="/history" element={<HistoryPage />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
