@@ -1,0 +1,22 @@
+# ============================
+# FRONTEND
+# ============================
+frontend/pulsetrack-ui/node_modules/
+frontend/pulsetrack-ui/.env
+frontend/pulsetrack-ui/build/
+
+# ============================
+# BACKEND
+# ============================
+backend/venv/
+backend/__pycache__/
+backend/.env
+backend/*.pyc
+
+# ============================
+# GENERAL
+# ============================
+.vscode/
+.idea/
+*.log
+*.DS_Store
